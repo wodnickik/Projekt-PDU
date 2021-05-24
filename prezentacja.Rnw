@@ -1,0 +1,15 @@
+\documentclass{beamer}
+
+\title{Temat}
+\subtitle{Projekt w ramach przedmiotu PDU}
+\author{Piwko Jakub, Wodnicki Krzysztof}
+\institute{Politechnika Warszawska}
+\date{\today}
+
+\begin{document}
+
+\begin{frame}
+  \titlepage
+\end{frame}
+
+\end{document}

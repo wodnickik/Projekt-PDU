@@ -1,3 +1,8 @@
+'''
+Skrypt przygotowany na podstawie skryptu dostepnego pod adresem
+http://www.gagolewski.com/resources/data/travel_stackexchange_com/readme.txt
+'''
+
 import xml.etree.ElementTree as ET
 import pandas as pd
 

@@ -1,9 +1,17 @@
 # Funkcje potrzebne do stworzenia ramek danych dla każdego forum, zawierające
 #zliczonych użytkowników z każdego kraju
+# Funkcje nic nie zwracają, ale zapisują odpowiednie ramki danych i mapki 
+# do plików, więc przy wykonywaniu trzeba uważać gdzie się zapisują i czy
+# przypadkiem nie dodajemy je na repozytorium
 
 #Przydatne pakiety:
 library(maps)
-library(rworldmap)
+library(rworldmap) 
+library(ggmap)
+library(rnaturalearth)
+library(rnaturalearthdata)
+library(rgeos)
+
 
 rozmieszczenie_B <- function() {
   #funkcja tworząca ramkę danych, w której dla forum buddhism zliczono ilość
@@ -14,10 +22,14 @@ rozmieszczenie_B <- function() {
   #bezwartościowe dane
   
   
-  #Wektora, który zawiera nazwy 149 krajów świata (potrzebny pakiet "rworldmap")
-  countries <- countryExData[, 2]
+  #Ramka world zawiera wszystkie dane o krajach i wszystkie dane graficzne 
+  #potrzebne do rysowania mapy, wektor countries zawiera nazwy wszystkich państw
+  #świata
+  world <- ne_countries(scale = "medium", returnclass = "sf")
+  countries <- unique(world$name_long)
   
-  #Wektor, który reprezentujące kolumnę "Location" w ramce
+  
+  #Wektor reprezentujący kolumnę "Location" w ramce
   location <- BUsers$Location
   
   #Inicjalizacja ramki 
@@ -39,9 +51,25 @@ rozmieszczenie_B <- function() {
   #Trzeba się pozbyć pierwszego wiersza, który służył tylko do inicjalizacji
   Zliczanie <- Zliczanie[-1, ]
   
-  #Zapis do pliku
+  #Zapis do pliku ramki z rozmieszczeniem
   write.csv(Zliczanie, "Rozmieszczenie_B.csv")
   
+  #Połączenie z ramką world, aby uzyskać dane do rysowania mapki
+  world_map <- merge(world, Zliczanie, by.y = "Country", by.x="name_long")
+  
+  #rysowanie wykresu i kolorowanie skalą kolorów w zależności od liczby 
+  #użytkowników w danym kraju
+  ggplot(data = world_map) +
+    geom_sf() +
+    ggtitle("Mapa rozmieszczenia użytkowników forum buddhism.stackexchange.com") +
+    geom_sf(aes(fill = Count)) +
+    scale_fill_viridis_c(alpha = 1, guide = "colourbar", 
+                         option = "G", trans = "sqrt", direction = -1)
+  
+  #Zapis mapki do pliku
+  ggsave("Mapa_B.png", width = 20, height = 10, units = "cm")
+  
+  invisible(NULL)
 }
 
 
@@ -54,10 +82,14 @@ rozmieszczenie_C <- function() {
   #bezwartościowe dane
   
   
-  #Wektora, który zawiera nazwy 149 krajów świata (potrzebny pakiet "rworldmap")
-  countries <- countryExData[, 2]
+  #Ramka world zawiera wszystkie dane o krajach i wszystkie dane graficzne 
+  #potrzebne do rysowania mapy, wektor countries zawiera nazwy wszystkich państw
+  #świata
+  world <- ne_countries(scale = "medium", returnclass = "sf")
+  countries <- unique(world$name_long)
   
-  #Wektor, który reprezentujące kolumnę "Location" w ramce
+  
+  #Wektor reprezentujący kolumnę "Location" w ramce
   location <- CUsers$Location
   
   #Inicjalizacja ramki 
@@ -82,6 +114,22 @@ rozmieszczenie_C <- function() {
   #Zapis do pliku
   write.csv(Zliczanie, "Rozmieszczenie_C.csv")
   
+  #Połączenie z ramką world, aby uzyskać dane do rysowania mapki
+  world_map <- merge(world, Zliczanie, by.y = "Country", by.x="name_long")
+  
+  #rysowanie wykresu i kolorowanie skalą kolorów w zależności od liczby 
+  #użytkowników w danym kraju
+  ggplot(data = world_map) +
+    geom_sf() +
+    ggtitle("Mapa rozmieszczenia użytkowników forum christianity.stackexchange.com") +
+    geom_sf(aes(fill = Count)) +
+    scale_fill_viridis_c(alpha = 1, guide = "colourbar", 
+                         option = "G", trans = "sqrt", direction = -1)
+  
+  #Zapis mapki do pliku
+  #ggsave("Mapa_C.png", width = 20, height = 10, units = "cm")
+  
+  invisible(NULL)
 }
 
 rozmieszczenie_H <- function() {
@@ -93,10 +141,14 @@ rozmieszczenie_H <- function() {
   #bezwartościowe dane
   
   
-  #Wektora, który zawiera nazwy 149 krajów świata (potrzebny pakiet "rworldmap")
-  countries <- countryExData[, 2]
+  #Ramka world zawiera wszystkie dane o krajach i wszystkie dane graficzne 
+  #potrzebne do rysowania mapy, wektor countries zawiera nazwy wszystkich państw
+  #świata
+  world <- ne_countries(scale = "medium", returnclass = "sf")
+  countries <- unique(world$name_long)
   
-  #Wektor, który reprezentujące kolumnę "Location" w ramce
+  
+  #Wektor reprezentujący kolumnę "Location" w ramce
   location <- HUsers$Location
   
   #Inicjalizacja ramki 
@@ -108,7 +160,6 @@ rozmieszczenie_H <- function() {
   #pomocnicza ramka i łączona wierszowo do ramki Zliczanie. Wynikiem jest
   #ramka, w której każdemu krajowi przypisana jest liczba użytkowników z tego
   #kraju
-  
   for (country in countries) {
     count <- sum(sapply(location, FUN = function(x) stri_count_regex(x, country)))
     pom <- data.frame(Country = country, Count = count)
@@ -119,8 +170,24 @@ rozmieszczenie_H <- function() {
   Zliczanie <- Zliczanie[-1, ]
   
   #Zapis do pliku
-  write.csv(Zliczanie, "Rozmieszczenie_H.csv")
+  # write.csv(Zliczanie, "Rozmieszczenie_H.csv")
   
+  #Połączenie z ramką world, aby uzyskać dane do rysowania mapki
+  world_map <- merge(world, Zliczanie, by.y = "Country", by.x="name_long")
+  
+  #rysowanie wykresu i kolorowanie skalą kolorów w zależności od liczby 
+  #użytkowników w danym kraju
+  ggplot(data = world_map) +
+    geom_sf() +
+    ggtitle("Mapa rozmieszczenia użytkowników forum hinduism.stackexchange.com") +
+    geom_sf(aes(fill = Count)) +
+    scale_fill_viridis_c(alpha = 1, guide = "colourbar", 
+                         option = "G", trans = "sqrt", direction = -1)
+  
+  #Zapis mapki do pliku
+  #ggsave("Mapa_H.png", width = 20, height = 10, units = "cm")
+  
+  invisible(NULL)
 }
 
 rozmieszczenie_I <- function() {
@@ -132,10 +199,14 @@ rozmieszczenie_I <- function() {
   #bezwartościowe dane
   
   
-  #Wektora, który zawiera nazwy 149 krajów świata (potrzebny pakiet "rworldmap")
-  countries <- countryExData[, 2]
+  #Ramka world zawiera wszystkie dane o krajach i wszystkie dane graficzne 
+  #potrzebne do rysowania mapy, wektor countries zawiera nazwy wszystkich państw
+  #świata
+  world <- ne_countries(scale = "medium", returnclass = "sf")
+  countries <- unique(world$name_long)
   
-  #Wektor, który reprezentujące kolumnę "Location" w ramce
+  
+  #Wektor reprezentujący kolumnę "Location" w ramce
   location <- IUsers$Location
   
   #Inicjalizacja ramki 
@@ -160,6 +231,22 @@ rozmieszczenie_I <- function() {
   #Zapis do pliku
   write.csv(Zliczanie, "Rozmieszczenie_I.csv")
   
+  #Połączenie z ramką world, aby uzyskać dane do rysowania mapki
+  world_map <- merge(world, Zliczanie, by.y = "Country", by.x="name_long")
+  
+  #rysowanie wykresu i kolorowanie skalą kolorów w zależności od liczby 
+  #użytkowników w danym kraju
+  ggplot(data = world_map) +
+    geom_sf() +
+    ggtitle("Mapa rozmieszczenia użytkowników forum islam.stackexchange.com") +
+    geom_sf(aes(fill = Count)) +
+    scale_fill_viridis_c(alpha = 1, guide = "colourbar", 
+                         option = "G", trans = "sqrt", direction = -1)
+  
+  #Zapis mapki do pliku
+  #ggsave("Mapa_I.png", width = 20, height = 10, units = "cm")
+  
+  invisible(NULL)
 }
 
 rozmieszczenie_J <- function() {
@@ -171,10 +258,14 @@ rozmieszczenie_J <- function() {
   #bezwartościowe dane
   
   
-  #Wektora, który zawiera nazwy 149 krajów świata (potrzebny pakiet "rworldmap")
-  countries <- countryExData[, 2]
+  #Ramka world zawiera wszystkie dane o krajach i wszystkie dane graficzne 
+  #potrzebne do rysowania mapy, wektor countries zawiera nazwy wszystkich państw
+  #świata
+  world <- ne_countries(scale = "medium", returnclass = "sf")
+  countries <- unique(world$name_long)
   
-  #Wektor, który reprezentujące kolumnę "Location" w ramce
+  
+  #Wektor reprezentujący kolumnę "Location" w ramce
   location <- BUsers$Location
   
   #Inicjalizacja ramki 
@@ -199,4 +290,20 @@ rozmieszczenie_J <- function() {
   #Zapis do pliku
   write.csv(Zliczanie, "Rozmieszczenie_I.csv")
   
+  #Połączenie z ramką world, aby uzyskać dane do rysowania mapki
+  world_map <- merge(world, Zliczanie, by.y = "Country", by.x="name_long")
+  
+  #rysowanie wykresu i kolorowanie skalą kolorów w zależności od liczby 
+  #użytkowników w danym kraju
+  ggplot(data = world_map) +
+    geom_sf() +
+    ggtitle("Mapa rozmieszczenia użytkowników forum judaism.stackexchange.com") +
+    geom_sf(aes(fill = Count)) +
+    scale_fill_viridis_c(alpha = 1, guide = "colourbar", 
+                         option = "G", trans = "sqrt", direction = -1)
+  
+  #Zapis mapki do pliku
+  #ggsave("Mapa_J.png", width = 20, height = 10, units = "cm")
+  
+  invisible(NULL)
 }

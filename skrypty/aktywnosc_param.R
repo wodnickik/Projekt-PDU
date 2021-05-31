@@ -1,19 +1,22 @@
 #Tworzenie ramek danych i wykresów porównujących aktywność na różnych forach
 #pod względem kolejnych paramtetrów
+# Funkcje nic nie zwracają, ale zapisują odpowiednie ramki danych i mapki 
+# do plików, więc przy wykonywaniu trzeba uważać gdzie się zapisują i czy
+# przypadkiem nie dodajemy je na repozytorium
 
 #Potrzebne biblioteki:
 library(stringi)
 library(sqldf)
-library(GGplot2)
+library(ggplot2)
 
-aktywnosc_Questions <- fuction() {
+aktywnosc_Questions <- function() {
   #Funkcja, która porównuje aktywność wszystkich forów pod względem 
   # parametru Questions
   
   #Tworzę ramki danych zawierające informacje dotyczące liczby pytań w danym
   #okresie dla każdej religii
   
-  B <- BPosts[BPosts$PostTypeId == 1]
+  B <- BPosts[BPosts$PostTypeId == 1, ]
   B <- B[grepl("20.", B$CreationDate), ]
   pomB <- B$CreationDate
   pomB <- as.data.frame(matrix(
@@ -26,7 +29,7 @@ aktywnosc_Questions <- fuction() {
               GROUP BY date")
   
   
-  C <- CPosts[CPosts$PostTypeId == 1]
+  C <- CPosts[CPosts$PostTypeId == 1, ]
   C <- C[grepl("20.", C$CreationDate), ]
   pomC <- C$CreationDate
   pomC <- as.data.frame(matrix(
@@ -38,7 +41,7 @@ aktywnosc_Questions <- fuction() {
               FROM Christianity
               GROUP BY date")
   
-  H <- HPosts[HPosts$PostTypeId == 1]
+  H <- HPosts[HPosts$PostTypeId == 1, ]
   H <- H[grepl("20.", H$CreationDate), ]
   pomH <- H$CreationDate
   pomH <- as.data.frame(matrix(
@@ -50,7 +53,7 @@ aktywnosc_Questions <- fuction() {
               FROM Hinduism
               GROUP BY date")
   
-  I <- IPosts[IPosts$PostTypeId == 1]
+  I <- IPosts[IPosts$PostTypeId == 1, ]
   I <- I[grepl("20.", I$CreationDate), ]
   pomI <- I$CreationDate
   pomI <- as.data.frame(matrix(
@@ -62,7 +65,7 @@ aktywnosc_Questions <- fuction() {
               FROM Islam
               GROUP BY date")
   
-  J <- JPosts[JPosts$PostTypeId == 1]
+  J <- JPosts[JPosts$PostTypeId == 1, ]
   J <- J[grepl("20.", J$CreationDate), ]
   pomJ <- J$CreationDate
   pomJ <- as.data.frame(matrix(
@@ -84,7 +87,7 @@ aktywnosc_Questions <- fuction() {
     Judaism, by = "date" ) 
   
   #Zapis ramki do pliku
-  #write.csv(Final, "Questions_Akt.csv", row.names = FALSE)
+  write.csv(Final, "Questions_Akt.csv", row.names = FALSE)
   
   #Rysowanie wykresu
   ggplot(data = Final, aes(x = date)) + 
@@ -92,24 +95,27 @@ aktywnosc_Questions <- fuction() {
     geom_line(aes(y = christianity, group = 1, color = "Chrześcijaństwo")) +
     geom_line(aes(y = hinduism, group = 1, color = "Hinduizm")) +
     geom_line(aes(y = islam, group = 1, color = "Islam")) +
-    geom_line(aes(y = judaism, group = 1, color = "Judaizm"))
+    geom_line(aes(y = judaism, group = 1, color = "Judaizm")) +
   labs(x = "Okres", angle = 90, y = "Liczba", 
        title = "Wykres zadanych pytań dla różnych religii") +
     theme(axis.text.x = element_text(colour = 'black', size = 8, angle = 90))
   
   #Zapis wykresu do pliku:
-  #ggsave("wyk_akt_que.png")
+  ggsave("wyk_akt_que.png", width=30, height = 10, units = "cm")
+  
+  invisible(NULL)
+
 }
 
 
-aktywnosc_Answers <- fuction() {
+aktywnosc_Answers <- function() {
   #Funkcja, która porównuje aktywność wszystkich forów pod względem 
   # parametru Answers
   
   #Tworzę ramki danych zawierające informacje dotyczące liczby odpowiedzi w danym
   #okresie dla każdej religii
   
-  B <- BPosts[BPosts$PostTypeId == 2]
+  B <- BPosts[BPosts$PostTypeId == 2, ]
   B <- B[grepl("20.", B$CreationDate), ]
   pomB <- B$CreationDate
   pomB <- as.data.frame(matrix(
@@ -122,7 +128,7 @@ aktywnosc_Answers <- fuction() {
               GROUP BY date")
   
   
-  C <- CPosts[CPosts$PostTypeId == 2]
+  C <- CPosts[CPosts$PostTypeId == 2, ]
   C <- C[grepl("20.", C$CreationDate), ]
   pomC <- C$CreationDate
   pomC <- as.data.frame(matrix(
@@ -134,7 +140,7 @@ aktywnosc_Answers <- fuction() {
               FROM Christianity
               GROUP BY date")
   
-  H <- HPosts[HPosts$PostTypeId == 2]
+  H <- HPosts[HPosts$PostTypeId == 2, ]
   H <- H[grepl("20.", H$CreationDate), ]
   pomH <- H$CreationDate
   pomH <- as.data.frame(matrix(
@@ -146,7 +152,7 @@ aktywnosc_Answers <- fuction() {
               FROM Hinduism
               GROUP BY date")
   
-  I <- IPosts[IPosts$PostTypeId == 2]
+  I <- IPosts[IPosts$PostTypeId == 2, ]
   I <- I[grepl("20.", I$CreationDate), ]
   pomI <- I$CreationDate
   pomI <- as.data.frame(matrix(
@@ -158,7 +164,7 @@ aktywnosc_Answers <- fuction() {
               FROM Islam
               GROUP BY date")
   
-  J <- JPosts[JPosts$PostTypeId == 2]
+  J <- JPosts[JPosts$PostTypeId == 2, ]
   J <- J[grepl("20.", J$CreationDate), ]
   pomJ <- J$CreationDate
   pomJ <- as.data.frame(matrix(
@@ -180,7 +186,7 @@ aktywnosc_Answers <- fuction() {
     Judaism, by = "date" ) 
   
   #Zapis ramki do pliku
-  #write.csv(Final, "Answers_Akt.csv", row.names = FALSE)
+  write.csv(Final, "Answers_Akt.csv", row.names = FALSE)
   
   #Rysowanie wykresu
   ggplot(data = Final, aes(x = date)) + 
@@ -188,17 +194,19 @@ aktywnosc_Answers <- fuction() {
     geom_line(aes(y = christianity, group = 1, color = "Chrześcijaństwo")) +
     geom_line(aes(y = hinduism, group = 1, color = "Hinduizm")) +
     geom_line(aes(y = islam, group = 1, color = "Islam")) +
-    geom_line(aes(y = judaism, group = 1, color = "Judaizm"))
+    geom_line(aes(y = judaism, group = 1, color = "Judaizm")) +
   labs(x = "Okres", angle = 90, y = "Liczba", 
        title = "Wykres udzielonych odpowiedzi dla różnych religii") +
     theme(axis.text.x = element_text(colour = 'black', size = 8, angle = 90))
   
   #Zapis wykresu do pliku:
-  #ggsave("wyk_akt_ans.png")
+  ggsave("wyk_akt_ans.png", width=30, height = 10, units = "cm")
+  
+  invisible(NULL)
 }
 
 
-aktywnosc_Links <- fuction() {
+aktywnosc_Links <- function() {
   #Funkcja, która porównuje aktywność wszystkich forów pod względem 
   # parametru PostLinks
   
@@ -271,7 +279,7 @@ aktywnosc_Links <- fuction() {
     Judaism, by = "date" ) 
   
   #Zapis ramki do pliku
-  #write.csv(Final, "Links_Akt.csv", row.names = FALSE)
+  write.csv(Final, "Links_Akt.csv", row.names = FALSE)
   
   #Rysowanie wykresu
   ggplot(data = Final, aes(x = date)) + 
@@ -279,17 +287,19 @@ aktywnosc_Links <- fuction() {
     geom_line(aes(y = christianity, group = 1, color = "Chrześcijaństwo")) +
     geom_line(aes(y = hinduism, group = 1, color = "Hinduizm")) +
     geom_line(aes(y = islam, group = 1, color = "Islam")) +
-    geom_line(aes(y = judaism, group = 1, color = "Judaizm"))
+    geom_line(aes(y = judaism, group = 1, color = "Judaizm")) +
   labs(x = "Okres", angle = 90, y = "Liczba", 
        title = "Wykres liczby odnośników do postów dla różnych religii") +
     theme(axis.text.x = element_text(colour = 'black', size = 8, angle = 90))
   
   #Zapis wykresu do pliku:
-  #ggsave("wyk_akt_lin.png")
+  ggsave("wyk_akt_lin.png", width=30, height = 10, units = "cm")
+  
+  invisible(NULL)
 }
 
 
-aktywnosc_votes <- fuction() {
+aktywnosc_votes <- function() {
   #Funkcja, która porównuje aktywność wszystkich forów pod względem 
   # parametru Votes
   
@@ -362,7 +372,7 @@ aktywnosc_votes <- fuction() {
     Judaism, by = "date" ) 
   
   #Zapis ramki do pliku
-  #write.csv(Final, "Votes_Akt.csv", row.names = FALSE)
+  write.csv(Final, "Votes_Akt.csv", row.names = FALSE)
   
   #Rysowanie wykresu
   ggplot(data = Final, aes(x = date)) + 
@@ -370,17 +380,19 @@ aktywnosc_votes <- fuction() {
     geom_line(aes(y = christianity, group = 1, color = "Chrześcijaństwo")) +
     geom_line(aes(y = hinduism, group = 1, color = "Hinduizm")) +
     geom_line(aes(y = islam, group = 1, color = "Islam")) +
-    geom_line(aes(y = judaism, group = 1, color = "Judaizm"))
+    geom_line(aes(y = judaism, group = 1, color = "Judaizm")) +
   labs(x = "Okres", angle = 90, y = "Liczba", 
        title = "Wykres liczby oddanych głosów dla różnych religii") +
     theme(axis.text.x = element_text(colour = 'black', size = 8, angle = 90))
   
   #Zapis wykresu do pliku:
-  #ggsave("wyk_akt_vot.png")
+  ggsave("wyk_akt_vot.png", width=30, height = 10, units = "cm")
+  
+  invisible(NULL)
 }
 
 
-aktywnosc_Comments <- fuction() {
+aktywnosc_Comments <- function() {
   #Funkcja, która porównuje aktywność wszystkich forów pod względem 
   # parametru Comments
   
@@ -453,7 +465,7 @@ aktywnosc_Comments <- fuction() {
     Judaism, by = "date" ) 
   
   #Zapis ramki do pliku
-  #write.csv(Final, "Comments_Akt.csv", row.names = FALSE)
+  write.csv(Final, "Comments_Akt.csv", row.names = FALSE)
   
   #Rysowanie wykresu
   ggplot(data = Final, aes(x = date)) + 
@@ -461,11 +473,13 @@ aktywnosc_Comments <- fuction() {
     geom_line(aes(y = christianity, group = 1, color = "Chrześcijaństwo")) +
     geom_line(aes(y = hinduism, group = 1, color = "Hinduizm")) +
     geom_line(aes(y = islam, group = 1, color = "Islam")) +
-    geom_line(aes(y = judaism, group = 1, color = "Judaizm"))
+    geom_line(aes(y = judaism, group = 1, color = "Judaizm")) +
   labs(x = "Okres", angle = 90, y = "Liczba", 
        title = "Wykres liczby ododanych komentarzy dla różnych religii") +
     theme(axis.text.x = element_text(colour = 'black', size = 8, angle = 90))
   
   #Zapis wykresu do pliku:
-  #ggsave("wyk_akt_com.png")
+  ggsave("wyk_akt_com.png", width=30, height = 10, units = "cm")
+  
+  invisible(NULL)
 }

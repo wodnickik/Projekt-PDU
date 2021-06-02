@@ -1,7 +1,9 @@
 # Zestawienie zbiorczej aktywności na forach
+# ile było danego rodzaju aktywności na forum w sumie, bez podziału na okresy czasowe
 
 library(dplyr)
 library(ggplot2)
+library(scales)
 
 summarise_religions <- function(){
     # W funkcji tworzona jest ramka danych Religions
@@ -71,20 +73,84 @@ summarise_religions <- function(){
     Religions
 }
 
-Religions <- summarise_religions()
+draw_summary <- function(){
+    # w funkcji eysowane i zapisywane są wykresy
+    # zestawiające odpowiednie statystyki
+    
+    Religions <- summarise_religions()
+    
+    # rysowanie wykresu
+    # do przemyślenia czy damy radę zamknąć to w funkcję
+    # dla reszty religii automatycznie
+    
+    # własna paleta kolorów
+    # trzeba wybrać jakieś ładne, które zawsze będą takie same z konkretną religią
+    religion_colors <- c("#FF8133", "#FFE900", "#0094C6", "#1A6318", "#89043D")
+    
+    # users
+    Users_plot <- ggplot(data = Religions) +
+        scale_fill_manual(values = religion_colors) +
+        geom_bar(mapping = aes(x = Religion, y = Users, fill=Religion), color = "black", stat = "identity") +
+        labs(x = "Religia", angle = 90, y = "Liczba",
+             title = "Liczba użytkowników na odpowiednich forach.")
+    ggsave(filename = "wykresy/sum_users.png", plot = Users_plot)
+    
+    # questions
+    Questions_plot <- ggplot(data = Religions) +
+        scale_fill_manual(values = religion_colors) +
+        geom_bar(mapping = aes(x = Religion, y = Questions, fill=Religion), color = "black", stat = "identity") +
+        labs(x = "Religia", angle = 90, y = "Liczba",
+             title = "Liczba pytań na odpowiednich forach.")
+    ggsave(filename = "wykresy/sum_questions.png", plot = Questions_plot)
+    
+    # answers
+    Answers_plot <- ggplot(data = Religions) +
+        scale_fill_manual(values = religion_colors) +
+        geom_bar(mapping = aes(x = Religion, y = Answers, fill=Religion), color = "black", stat = "identity") +
+        labs(x = "Religia", angle = 90, y = "Liczba",
+             title = "Liczba odpowiedzi na odpowiednich forach.")
+    ggsave(filename = "wykresy/sum_answers.png", plot = Answers_plot)
+    
+    # links
+    Links_plot <- ggplot(data = Religions) +
+        scale_fill_manual(values = religion_colors) +
+        geom_bar(mapping = aes(x = Religion, y = PostLinks, fill=Religion), color = "black", stat = "identity") +
+        labs(x = "Religia", angle = 90, y = "Liczba",
+             title = "Liczba linków na odpowiednich forach.")
+    ggsave(filename = "wykresy/sum_links.png", plot = Links_plot)
+    
+    # comments
+    Comments_plot <- ggplot(data = Religions) +
+        scale_fill_manual(values = religion_colors) +
+        geom_bar(mapping = aes(x = Religion, y = Comments, fill=Religion), color = "black", stat = "identity") +
+        labs(x = "Religia", angle = 90, y = "Liczba",
+             title = "Liczba komentarzy na odpowiednich forach.")
+    ggsave(filename = "wykresy/sum_comments.png", plot = Comments_plot)
+    
+    # votes
+    Votes_plot <- ggplot(data = Religions) +
+        scale_fill_manual(values = religion_colors) +
+        geom_bar(mapping = aes(x = Religion, y = Votes, fill=Religion), color = "black", stat = "identity") +
+        labs(x = "Religia", angle = 90, y = "Liczba",
+             title = "Liczba głosów na odpowiednich forach.")
+    ggsave(filename = "wykresy/sum_votes.png", plot = Votes_plot)
+}
 
-# rysowanie wykresu
-# do przemyślenia czy damy radę zamknąć to w funkcję
-# dla reszty religii automatycznie
-
-# własna paleta kolorów
-# trzeba wybrać jakieś ładne, które zawsze będą takie same z konkretną religią
-religion_colors <- c("#99F7AB", "#F0EC57", "#79A9D1", "#FF8C42", "#89043D")
-# inicjacja wykresu
-Users_plot <- ggplot(data = Religions)
-# zmiana palety kolorów
-Users_plot <- Users_plot + scale_fill_manual(values = religion_colors)
-# dodanie słupków
-Users_plot <- Users_plot + geom_bar(mapping = aes(x = Religion, y = Users, fill=Religion), color = "black", stat = "identity")
-# pokazanie wykresu
-Users_plot
+draw_religions <- function(){
+    # w funkcji rysowany i zapisywany jest jeden wykres
+    # wykres porównuje liczbość wszystkich religii
+    
+    # inicjujemy ramkę i własne kolory
+    Religions <- summarise_religions()
+    religion_colors <- c("#FF8133", "#FFE900", "#0094C6", "#1A6318", "#89043D")
+    
+    # rysujemy wykres
+    Pie_religions <- ggplot(Religions, aes(x = "", y = Adherents, fill=Religion)) +
+        scale_fill_manual(values = religion_colors) +
+        geom_bar(stat = "identity", width = 1, color = "white") +
+        coord_polar("y", start = 0) +
+        theme_void() + 
+        geom_text(aes(x=1.7, y = cumsum(Adherents)[length(Adherents)] - cumsum(Adherents) + Adherents/2, 
+                      label = percent(Adherents/sum(Adherents))), size=5)
+    ggsave(filename = "wykresy/pie_religions.png", plot = Pie_religions)
+}

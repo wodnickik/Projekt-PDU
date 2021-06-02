@@ -18,7 +18,6 @@ summarise_religions <- function(){
         Religion = c("Buddhism", "Christisnity", "Hinduism", "Islam", "Judaism"),
         Adherents = c(506*(10**6), 2.382*(10**9), 1.161*(10**9), 1.907*(10**9), 14.7*(10**6))
     )
-    rownames(Religions) <- c("Buddhism", "Christisnity", "Hinduism", "Islam", "Judaism")
     
     # Zliczanie odpowiednich statystyk
     Religions$Users <- c(

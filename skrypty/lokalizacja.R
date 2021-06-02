@@ -30,7 +30,7 @@ rozmieszczenie_B <- function() {
   
   
   #Wektor reprezentujący kolumnę "Location" w ramce
-  location <- BUsers$Location
+  location <- na.omit(BUsers$Location)
   
   #Inicjalizacja ramki 
   Zliczanie <- data.frame(Country = "", Count = 0)
@@ -90,7 +90,7 @@ rozmieszczenie_C <- function() {
   
   
   #Wektor reprezentujący kolumnę "Location" w ramce
-  location <- CUsers$Location
+  location <- na.omit(CUsers$Location)
   
   #Inicjalizacja ramki 
   Zliczanie <- data.frame(Country = "", Count = 0)
@@ -127,7 +127,9 @@ rozmieszczenie_C <- function() {
                          option = "G", trans = "sqrt", direction = -1)
   
   #Zapis mapki do pliku
-  #ggsave("Mapa_C.png", width = 20, height = 10, units = "cm")
+  ggsave("Mapa_C.png", width = 20, height = 10, units = "cm")
+  
+  
   
   invisible(NULL)
 }
@@ -149,7 +151,7 @@ rozmieszczenie_H <- function() {
   
   
   #Wektor reprezentujący kolumnę "Location" w ramce
-  location <- HUsers$Location
+  location <- na.omit(HUsers$Location)
   
   #Inicjalizacja ramki 
   Zliczanie <- data.frame(Country = "", Count = 0)
@@ -185,7 +187,7 @@ rozmieszczenie_H <- function() {
                          option = "G", trans = "sqrt", direction = -1)
   
   #Zapis mapki do pliku
-  #ggsave("Mapa_H.png", width = 20, height = 10, units = "cm")
+  ggsave("Mapa_H.png", width = 20, height = 10, units = "cm")
   
   invisible(NULL)
 }
@@ -207,7 +209,7 @@ rozmieszczenie_I <- function() {
   
   
   #Wektor reprezentujący kolumnę "Location" w ramce
-  location <- IUsers$Location
+  location <- na.omit(IUsers$Location)
   
   #Inicjalizacja ramki 
   Zliczanie <- data.frame(Country = "", Count = 0)
@@ -244,7 +246,7 @@ rozmieszczenie_I <- function() {
                          option = "G", trans = "sqrt", direction = -1)
   
   #Zapis mapki do pliku
-  #ggsave("Mapa_I.png", width = 20, height = 10, units = "cm")
+  ggsave("Mapa_I.png", width = 20, height = 10, units = "cm")
   
   invisible(NULL)
 }
@@ -266,7 +268,7 @@ rozmieszczenie_J <- function() {
   
   
   #Wektor reprezentujący kolumnę "Location" w ramce
-  location <- BUsers$Location
+  location <- na.omit(BUsers$Location)
   
   #Inicjalizacja ramki 
   Zliczanie <- data.frame(Country = "", Count = 0)
@@ -303,7 +305,7 @@ rozmieszczenie_J <- function() {
                          option = "G", trans = "sqrt", direction = -1)
   
   #Zapis mapki do pliku
-  #ggsave("Mapa_J.png", width = 20, height = 10, units = "cm")
+  ggsave("Mapa_J.png", width = 20, height = 10, units = "cm")
   
   invisible(NULL)
 }

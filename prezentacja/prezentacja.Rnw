@@ -1,15 +1,206 @@
-\documentclass{beamer}
+\documentclass[11pt]{beamer}
 
-\title{Temat}
+% styl prezentacji
+% \usefonttheme{}
+\usetheme{Warsaw} % Warsaw, Madrid, Singapore
+\usecolortheme{spruce} % seahorse, spruce, beaver, 
+
+% ładne początki kolejnych sekcji
+\AtBeginSection[]
+{
+  \begin{frame}
+    \frametitle{Plan prezentacji}
+    \tableofcontents[currentsection]
+  \end{frame}
+}
+
+% strona tytułowa
+\title[Fora religijne]{Aktywność na forach religijnych}
 \subtitle{Projekt w ramach przedmiotu PDU}
 \author{Piwko Jakub, Wodnicki Krzysztof}
-\institute{Politechnika Warszawska}
+\institute[PW]{Politechnika Warszawska}
 \date{\today}
 
+% język i ogonki
+\usepackage[polish]{babel}
+\usepackage{polski}
+\usepackage[T1]{fontenc}
+\usepackage[utf8]{inputenc}
+
+% potrzebne do obrazkóW
+\usepackage{graphicx,subcaption}
+
+
+% początek dokumentu
 \begin{document}
 
+% strona tytułowa
+\frame{\titlepage}
+
+
+% spis treści
 \begin{frame}
-  \titlepage
+  \frametitle{Plan prezentacji}
+  \tableofcontents
+\end{frame}
+
+\section{Opis projektu}
+
+\begin{frame}
+    \frametitle{Temat}
+    \begin{figure}
+        \onslide<1->\includegraphics[width=0.75\textwidth]{obrazki/SE.png}
+    \end{figure}
+    
+    \begin{columns}
+    \column{0.5\textwidth}
+    \begin{block}{Wymagania}
+    \begin{itemize}
+        \item<2-> Podobna tematyka
+        \item<3-> Ciekawe możliwości
+        \item<4-> Kilka, niemałych
+    \end{itemize}
+    \end{block}
+    
+    \column{0.5\textwidth}
+    \begin{block}{Możliwości}
+    \begin{itemize}
+        \item<5-> Programowanie
+        \begin{itemize}
+            \item<5-> Stack Overflow
+        \end{itemize}
+        \item<6-> Technologia
+        \begin{itemize}
+            \item<6-> Systemy operacyjne
+            \item<6-> Dziedziny nauki
+        \end{itemize}
+        \item<7-> Kultura
+        \begin{itemize}
+            \item<7-> Języki
+            \item<7-> Hobby i rozrywka
+            \item<7-> Religie
+        \end{itemize}
+    \end{itemize}
+    \end{block}
+    
+    \end{columns}
+\end{frame}
+
+\begin{frame}
+    \frametitle{Omawiane fora}
+    \begin{columns}
+        \column{0.5\textwidth}
+        \begin{block}{Religie}
+        \begin{itemize}
+            \item<2-> Buddyzm
+            \item<3-> Chreścijaństwo
+            \item<4-> Hinduizm
+            \item<5-> Islam
+            \item<6-> Judaizm
+        \end{itemize}
+        \end{block}
+        
+        \column{0.5\textwidth}
+        \begin{figure}
+            
+            \begin{subfigure}[t]{0.45\textwidth}
+                \onslide<2->\centering\includegraphics[scale=0.5]{obrazki/B.png}
+                \onslide<2->\caption{Buddhism}
+            \end{subfigure}
+            \begin{subfigure}[t]{0.45\textwidth}
+                \onslide<3->\centering\includegraphics[scale=0.5]{obrazki/C.png}
+                \onslide<3->\caption{Christianity}
+            \end{subfigure}
+            
+            \bigskip
+            
+            \begin{subfigure}[c]{0.45\textwidth}
+                \onslide<4->\centering\includegraphics[scale=0.5]{obrazki/H.png}
+                \onslide<4->\caption{Hinduism}
+            \end{subfigure}
+            \begin{subfigure}[c]{0.45\textwidth}
+                \onslide<5->\centering\includegraphics[scale=0.5]{obrazki/I.png}
+                \onslide<5->\caption{Islam}
+            \end{subfigure}
+            
+            \bigskip
+            
+            \begin{subfigure}[b]{0.45\textwidth}
+                \onslide<6->\centering\includegraphics[scale=0.5]{obrazki/J.png}
+                \onslide<6->\caption{Mi Yodeya}
+            \end{subfigure}
+            
+            \onslide<1->\caption{Fora, które analizowaliśmy}
+        \end{figure}
+        
+    \end{columns}
+\end{frame}
+
+\begin{frame}
+    \frametitle{Pytania badawcze}
+    
+    \begin{block}{Pytania}
+    \begin{itemize}
+        \item<2-> Wielkość forów
+        \item<3-> Aktywność w czasie
+        \item<4-> Wpływ wydarzeń na aktywność
+        \item<5-> Rozłożenie użytkowników na świecie
+        \item<6-> Czas odpowiedzi na pytania
+    \end{itemize}
+    \end{block}
+    
+\end{frame}
+
+\section{Wyniki analizy}
+
+\begin{frame}
+    \frametitle{Wielkość forów}
+
+\end{frame}
+
+\begin{frame}
+    \frametitle{Aktywność w czasie}
+
+\end{frame}
+
+\begin{frame}
+    \frametitle{Wpływ wydarzeń na aktywność}
+
+\end{frame}
+
+\begin{frame}
+    \frametitle{Rozłożenie użytkowników na świecie}
+
+\end{frame}
+
+\begin{frame}
+    \frametitle{Czas odpowiedzi na pytania}
+
+\end{frame}
+
+\section{Realizacja projektu}
+
+\begin{frame}
+    \frametitle{Realizacja}
+    Co tu napisać?
+    
+    Jeśli w ogóle coś
+\end{frame}
+
+\section{Dane i bibliografia}
+
+\begin{frame}
+    \frametitle{Dane}
+    Co tu napisać?
+    
+    Jeśli w ogóle coś
+\end{frame}
+
+\begin{frame}
+    \frametitle{Bibliografia}
+    Co tu napisać?
+    
+    Jeśli w ogóle coś
 \end{frame}
 
 \end{document}

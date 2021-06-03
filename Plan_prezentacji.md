@@ -18,7 +18,7 @@
 
 ## Wyniki projektu
 
-1. Wielkość religi vs zbiorcza aktywność
+1. Wielkość forów vs wielkość religii
 2. Aktywnośc w czasie
 3. Wpływ wydarzeń na aktywnośc w czasie
 4. Rozmieszczenie użytkowników na świecie

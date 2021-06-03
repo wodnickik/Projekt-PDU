@@ -1,4 +1,5 @@
 library(dplyr)
+library(ggplot2)
 
 time_to_answer <- function(Posts){
     # Funkcja oblicza czas uzyskania odpowiedzi na pytania
@@ -88,7 +89,65 @@ answer_speed_stats <- function(){
     Religions
 }
 
-draw_answer_speed <- function(){
+answer_speed_stats2 <- function(){
+    # Podobne do pierwszej wersji
+    # W tej ramce wszystkie czasy są w jednej kolumnie
+    # jest dodatkowa kolumna Type
+    # Type mówi czy to Max/Min/Mean/Median
+    
     Religions <- answer_speed_stats()
     
+    MaxTimes <- select(Religions, Religion, MaxTime)
+    MaxTimes <- rename(MaxTimes, Time=MaxTime)
+    MaxTimes$Type <- rep("Max", 5)
+    
+    MinTimes <- select(Religions, Religion, MinTime)
+    MinTimes <- rename(MinTimes, Time=MinTime)
+    MinTimes$Type <- rep("Min", 5)
+    
+    MedianTimes <- select(Religions, Religion, MedianTime)
+    MedianTimes <- rename(MedianTimes, Time=MedianTime)
+    MedianTimes$Type <- rep("Median", 5)
+    
+    MeanTimes <- select(Religions, Religion, MeanTime)
+    MeanTimes <- rename(MeanTimes, Time=MeanTime)
+    MeanTimes$Type <- rep("Mean", 5)
+    
+    Religions <- bind_rows(MinTimes, MedianTimes, MeanTimes, MaxTimes)
+    
+    Religions
+}
+
+draw_answer_speed <- function(){
+    # Funkcja rysuje i zapisuje wykresy zestawiające czasy odpowiedzi
+    
+    # wczytujemy odpowiedznie dane
+    Religions <- answer_speed_stats()
+    
+    # ustawiamy własne kolory
+    religion_colors <- c("#FF8133", "#FFE900", "#0094C6", "#1A6318", "#89043D")
+    
+    # rysujemy wykres z medianą
+    ggplot(data = Religions, aes(x=Religion, y=MedianTime, fill=Religion)) +
+        geom_bar(stat="identity", color="Black") +
+        scale_fill_manual(values=religion_colors) +
+        labs(x = "Religia", angle = 90, y = "Mediana",
+             title = "Mediana czasu oczekiwania na odpowiedź na odpowiednich forach.")
+    ggsave(filename = "wykresy/median_times.png")
+    
+    # rysujemy wykres ze średnią
+    ggplot(data = Religions, aes(x=Religion, y=MeanTime, fill=Religion)) +
+        geom_bar(stat="identity", color="Black") +
+        scale_fill_manual(values=religion_colors) +
+        labs(x = "Religia", angle = 90, y = "Średnia",
+             title = "Średni czas oczekiwania na odpowiedź na odpowiednich forach.")
+    ggsave(filename = "wykresy/mean_times.png")
+    
+    # rysujemy wykres z maksimum
+    ggplot(data = Religions, aes(x=Religion, y=MaxTime, fill=Religion)) +
+        geom_bar(stat="identity", color="Black") +
+        scale_fill_manual(values=religion_colors) +
+        labs(x = "Religia", angle = 90, y = "Maksimum",
+             title = "Maksymalny czas oczekiwania na odpowiedź na odpowiednich forach.")
+    ggsave(filename = "wykresy/max_times.png")
 }

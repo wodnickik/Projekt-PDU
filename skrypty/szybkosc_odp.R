@@ -86,6 +86,10 @@ answer_speed_stats <- function(){
         mean(JTime$TimeToAnswer)
     )
     
+    # zapisanie ramki
+    write.csv(Religions, "dane/posrednie/Answer_time.csv")
+    
+    # zwrócenie ramki
     Religions
 }
 
@@ -133,7 +137,7 @@ draw_answer_speed <- function(){
         scale_fill_manual(values=religion_colors) +
         labs(x = "Religia", angle = 90, y = "Mediana",
              title = "Mediana czasu oczekiwania na odpowiedź na odpowiednich forach.")
-    ggsave(filename = "wykresy/median_times.png")
+    ggsave(filename = "prezentacja/wykresy/median_times.png")
     
     # rysujemy wykres ze średnią
     ggplot(data = Religions, aes(x=Religion, y=MeanTime, fill=Religion)) +
@@ -141,7 +145,7 @@ draw_answer_speed <- function(){
         scale_fill_manual(values=religion_colors) +
         labs(x = "Religia", angle = 90, y = "Średnia",
              title = "Średni czas oczekiwania na odpowiedź na odpowiednich forach.")
-    ggsave(filename = "wykresy/mean_times.png")
+    ggsave(filename = "prezentacja/wykresy/mean_times.png")
     
     # rysujemy wykres z maksimum
     ggplot(data = Religions, aes(x=Religion, y=MaxTime, fill=Religion)) +
@@ -149,5 +153,5 @@ draw_answer_speed <- function(){
         scale_fill_manual(values=religion_colors) +
         labs(x = "Religia", angle = 90, y = "Maksimum",
              title = "Maksymalny czas oczekiwania na odpowiedź na odpowiednich forach.")
-    ggsave(filename = "wykresy/max_times.png")
+    ggsave(filename = "prezentacja/wykresy/max_times.png")
 }

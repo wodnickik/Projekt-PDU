@@ -68,6 +68,9 @@ summarise_religions <- function(){
                         length(pull(filter(JVotes), Id))
                         )
     
+    # zapisanie ramki
+    write.csv(Religions, "dane/posrednie/Religions_summary.csv")
+    
     # Zwrócenie ramki
     Religions
 }
@@ -92,7 +95,7 @@ draw_summary <- function(){
         geom_bar(mapping = aes(x = Religion, y = Users, fill=Religion), color = "black", stat = "identity") +
         labs(x = "Religia", angle = 90, y = "Liczba",
              title = "Liczba użytkowników na odpowiednich forach.")
-    ggsave(filename = "wykresy/sum_users.png", plot = Users_plot)
+    ggsave(filename = "prezentacja/wykresy/sum_users.png", plot = Users_plot)
     
     # questions
     Questions_plot <- ggplot(data = Religions) +
@@ -100,7 +103,7 @@ draw_summary <- function(){
         geom_bar(mapping = aes(x = Religion, y = Questions, fill=Religion), color = "black", stat = "identity") +
         labs(x = "Religia", angle = 90, y = "Liczba",
              title = "Liczba pytań na odpowiednich forach.")
-    ggsave(filename = "wykresy/sum_questions.png", plot = Questions_plot)
+    ggsave(filename = "prezentacja/wykresy/sum_questions.png", plot = Questions_plot)
     
     # answers
     Answers_plot <- ggplot(data = Religions) +
@@ -108,7 +111,7 @@ draw_summary <- function(){
         geom_bar(mapping = aes(x = Religion, y = Answers, fill=Religion), color = "black", stat = "identity") +
         labs(x = "Religia", angle = 90, y = "Liczba",
              title = "Liczba odpowiedzi na odpowiednich forach.")
-    ggsave(filename = "wykresy/sum_answers.png", plot = Answers_plot)
+    ggsave(filename = "prezentacja/wykresy/sum_answers.png", plot = Answers_plot)
     
     # links
     Links_plot <- ggplot(data = Religions) +
@@ -116,7 +119,7 @@ draw_summary <- function(){
         geom_bar(mapping = aes(x = Religion, y = PostLinks, fill=Religion), color = "black", stat = "identity") +
         labs(x = "Religia", angle = 90, y = "Liczba",
              title = "Liczba linków na odpowiednich forach.")
-    ggsave(filename = "wykresy/sum_links.png", plot = Links_plot)
+    ggsave(filename = "prezentacja/wykresy/sum_links.png", plot = Links_plot)
     
     # comments
     Comments_plot <- ggplot(data = Religions) +
@@ -124,7 +127,7 @@ draw_summary <- function(){
         geom_bar(mapping = aes(x = Religion, y = Comments, fill=Religion), color = "black", stat = "identity") +
         labs(x = "Religia", angle = 90, y = "Liczba",
              title = "Liczba komentarzy na odpowiednich forach.")
-    ggsave(filename = "wykresy/sum_comments.png", plot = Comments_plot)
+    ggsave(filename = "prezentacja/wykresy/sum_comments.png", plot = Comments_plot)
     
     # votes
     Votes_plot <- ggplot(data = Religions) +
@@ -132,7 +135,7 @@ draw_summary <- function(){
         geom_bar(mapping = aes(x = Religion, y = Votes, fill=Religion), color = "black", stat = "identity") +
         labs(x = "Religia", angle = 90, y = "Liczba",
              title = "Liczba głosów na odpowiednich forach.")
-    ggsave(filename = "wykresy/sum_votes.png", plot = Votes_plot)
+    ggsave(filename = "prezentacja/wykresy/sum_votes.png", plot = Votes_plot)
 }
 
 draw_religions <- function(){
@@ -151,5 +154,5 @@ draw_religions <- function(){
         theme_void() + 
         geom_text(aes(x=1.7, y = cumsum(Adherents)[length(Adherents)] - cumsum(Adherents) + Adherents/2, 
                       label = percent(Adherents/sum(Adherents))), size=5)
-    ggsave(filename = "wykresy/pie_religions.png", plot = Pie_religions)
+    ggsave(filename = "prezentacja/wykresy/pie_religions.png", plot = Pie_religions)
 }

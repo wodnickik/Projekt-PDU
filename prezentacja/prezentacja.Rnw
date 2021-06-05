@@ -3,7 +3,7 @@
 % styl prezentacji
 % \usefonttheme{}
 \usetheme{Warsaw} % Warsaw, Madrid, Singapore
-\usecolortheme{spruce} % seahorse, spruce, beaver, 
+\usecolortheme{spruce} % seahorse, spruce, beaver, default
 
 % ładne początki kolejnych sekcji
 \AtBeginSection[]

@@ -109,7 +109,7 @@ aktywnosc_buddhsim <- function() {
     theme(axis.text.x = element_text(colour = 'black', size = 8, angle = 90))
   
   #Zapis wykresu
-  ggsave("prezentacja/Wykresy/wyk_akt_B.png", width=60, height = 20, units = "cm")
+  ggsave("prezentacja/Wykresy/wyk_akt_B.png", width=30, height = 10, units = "cm")
   
   invisible(NULL)
           

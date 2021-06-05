@@ -7,7 +7,6 @@
 1. Opis projektu
 2. Wyniki projektu
 3. Realizacja projektu
-4. Dane, bibliografia, itp., itd.
 
 ## Opis projektu
 
@@ -18,16 +17,14 @@
 
 ## Wyniki projektu
 
-1. Wielkość forów vs wielkość religii
-2. Aktywnośc w czasie
-3. Wpływ wydarzeń na aktywnośc w czasie
-4. Rozmieszczenie użytkowników na świecie
+1. Wielkość forów
+2. Aktywność w czasie
+3. Wpływ wydarzeń na aktywność
+4. Rozłożenie użytkowników na świecie
 5. Czas odpowiedzi na pytania
 
 ## Realizacja projektu
 
-Jeśli chcemy to możemy opowiedzieć jak robiliśmy, jakie mieliśmy problemy, co nam się podobało, co nie, jakich używaliśmy narzędzi, czy cokolwiek fajnego nam przyjedzie do głowy
-
-## Dane, bibliografia, itp., itd.
-
-Jeśli chcemy możemy wspomnieć o tym skąd pochodzą dane i innych tego typu rzeczach jak bibliografia
+1. R
+2. GitHub
+2. ggplot

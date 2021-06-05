@@ -13,6 +13,18 @@
     \tableofcontents[currentsection]
   \end{frame}
 }
+\AtBeginSubsection[]
+{
+  \begin{frame}
+    \frametitle{Plan prezentacji}
+    \tableofcontents[ 
+                    currentsubsection, 
+                    hideothersubsections, 
+                    sectionstyle=show/hide, 
+                    subsectionstyle=show/shaded, 
+                    ] 
+  \end{frame}
+}
 
 % strona tytułowa
 \title[Fora religijne]{Aktywność na forach religijnych}
@@ -153,8 +165,10 @@
 
 \section{Wyniki analizy}
 
+\subsection{Wielkosć forów}
+
 \begin{frame}
-    \frametitle{Wielkość forów}
+    \frametitle{Użytkownicy}
     \begin{figure}
           \begin{subfigure}[t]{0.45\textwidth}
               \onslide<1->\centering\includegraphics[width=\textwidth]{wykresy/pie_religions.png}
@@ -166,49 +180,208 @@
 \end{frame}
 
 \begin{frame}
-    \frametitle{Aktywność w czasie}
-    
-    
+    \frametitle{Pytania}
+    \begin{figure}
+          \begin{subfigure}[t]{0.45\textwidth}
+              \onslide<1->\centering\includegraphics[width=\textwidth]{wykresy/pie_religions.png}
+          \end{subfigure}
+          \begin{subfigure}[t]{0.45\textwidth}
+              \onslide<1->\centering\includegraphics[width=\textwidth]{wykresy/sum_questions.png}
+          \end{subfigure}
+      \end{figure}
 \end{frame}
 
 \begin{frame}
-    \frametitle{Wpływ wydarzeń na aktywność}
-
+    \frametitle{Odpowidzi}
+    \begin{figure}
+          \begin{subfigure}[t]{0.45\textwidth}
+              \onslide<1->\centering\includegraphics[width=\textwidth]{wykresy/pie_religions.png}
+          \end{subfigure}
+          \begin{subfigure}[t]{0.45\textwidth}
+              \onslide<1->\centering\includegraphics[width=\textwidth]{wykresy/sum_answers.png}
+          \end{subfigure}
+      \end{figure}
 \end{frame}
 
 \begin{frame}
-    \frametitle{Rozłożenie użytkowników na świecie}
-
+    \frametitle{Komentarze}
+    \begin{figure}
+          \begin{subfigure}[t]{0.45\textwidth}
+              \onslide<1->\centering\includegraphics[width=\textwidth]{wykresy/pie_religions.png}
+          \end{subfigure}
+          \begin{subfigure}[t]{0.45\textwidth}
+              \onslide<1->\centering\includegraphics[width=\textwidth]{wykresy/sum_comments.png}
+          \end{subfigure}
+      \end{figure}
 \end{frame}
+
+\begin{frame}
+    \frametitle{Linki}
+    \begin{figure}
+          \begin{subfigure}[t]{0.45\textwidth}
+              \onslide<1->\centering\includegraphics[width=\textwidth]{wykresy/pie_religions.png}
+          \end{subfigure}
+          \begin{subfigure}[t]{0.45\textwidth}
+              \onslide<1->\centering\includegraphics[width=\textwidth]{wykresy/sum_links.png}
+          \end{subfigure}
+      \end{figure}
+\end{frame}
+
+\begin{frame}
+    \frametitle{Głosy}
+    \begin{figure}
+          \begin{subfigure}[t]{0.45\textwidth}
+              \onslide<1->\centering\includegraphics[width=\textwidth]{wykresy/pie_religions.png}
+          \end{subfigure}
+          \begin{subfigure}[t]{0.45\textwidth}
+              \onslide<1->\centering\includegraphics[width=\textwidth]{wykresy/sum_votes.png}
+          \end{subfigure}
+      \end{figure}
+\end{frame}
+
+\subsection{Aktywność w czasie}
+
+\begin{frame}
+    \frametitle{Pytania}
+    \begin{figure}
+        \centering\includegraphics[width=\textwidth]{wykresy/wyk_akt_que.png}
+    \end{figure}
+\end{frame}
+
+\begin{frame}
+    \frametitle{Odpowiedzi}
+    \begin{figure}
+        \centering\includegraphics[width=\textwidth]{wykresy/wyk_akt_ans.png}
+    \end{figure}
+\end{frame}
+
+\begin{frame}
+    \frametitle{Komentarze}
+    \begin{figure}
+        \centering\includegraphics[width=\textwidth]{wykresy/wyk_akt_com.png}
+    \end{figure}
+\end{frame}
+
+\begin{frame}
+    \frametitle{Linki}
+    \begin{figure}
+        \centering\includegraphics[width=\textwidth]{wykresy/wyk_akt_lin.png}
+    \end{figure}
+\end{frame}
+
+\begin{frame}
+    \frametitle{Głosy}
+    \begin{figure}
+        \centering\includegraphics[width=\textwidth]{wykresy/wyk_akt_vot.png}
+    \end{figure}
+\end{frame}
+
+\subsection{Wpływ wydarzeń na aktywność}
+
+\begin{frame}
+    \frametitle{Buddyzm}
+    \begin{figure}
+        \centering\includegraphics[width=\textwidth]{wykresy/wyk_akt_B.png}
+    \end{figure}
+\end{frame}
+
+\begin{frame}
+    \frametitle{Chrześcijaństwo}
+    \begin{figure}
+        \centering\includegraphics[width=\textwidth]{wykresy/wyk_akt_C.png}
+    \end{figure}
+\end{frame}
+
+\begin{frame}
+    \frametitle{Hinduizm}
+    \begin{figure}
+        \centering\includegraphics[width=\textwidth]{wykresy/wyk_akt_H.png}
+    \end{figure}
+\end{frame}
+
+\begin{frame}
+    \frametitle{Islam}
+    \begin{figure}
+        \centering\includegraphics[width=\textwidth]{wykresy/wyk_akt_I.png}
+    \end{figure}
+\end{frame}
+
+\begin{frame}
+    \frametitle{Judaizm}
+    \begin{figure}
+        \centering\includegraphics[width=\textwidth]{wykresy/wyk_akt_J.png}
+    \end{figure}
+\end{frame}
+
+\subsection{Rozłożenie użytkowników na świecie}
+
+\begin{frame}
+    \frametitle{Buddyzm}
+    \begin{figure}
+        \centering\includegraphics[width=\textwidth]{wykresy/Mapa_B.png}
+    \end{figure}
+\end{frame}
+
+\begin{frame}
+    \frametitle{Chrześcijaństwo}
+    \begin{figure}
+        \centering\includegraphics[width=\textwidth]{wykresy/Mapa_C.png}
+    \end{figure}
+\end{frame}
+
+\begin{frame}
+    \frametitle{Hinduizm}
+    \begin{figure}
+        \centering\includegraphics[width=\textwidth]{wykresy/Mapa_H.png}
+    \end{figure}
+\end{frame}
+
+\begin{frame}
+    \frametitle{Islam}
+    \begin{figure}
+        \centering\includegraphics[width=\textwidth]{wykresy/Mapa_I.png}
+    \end{figure}
+\end{frame}
+
+\begin{frame}
+    \frametitle{Judaizm}
+    \begin{figure}
+        \centering\includegraphics[width=\textwidth]{wykresy/Mapa_J.png}
+    \end{figure}
+\end{frame}
+
+\subsection{Czas odpowiedzi na pytania}
 
 \begin{frame}
     \frametitle{Czas odpowiedzi na pytania}
-
+    \begin{figure}
+            \begin{subfigure}[c]{0.3\textwidth}
+                \centering\includegraphics[width=\textwidth]{wykresy/median_times.png}
+            \end{subfigure}
+            \begin{subfigure}[c]{0.3\textwidth}
+                \centering\includegraphics[width=\textwidth]{wykresy/mean_times.png}
+            \end{subfigure}
+            \begin{subfigure}[c]{0.3\textwidth}
+                \centering\includegraphics[width=\textwidth]{wykresy/max_times.png}
+            \end{subfigure}
+    \end{figure}
 \end{frame}
 
 \section{Realizacja projektu}
 
 \begin{frame}
     \frametitle{Realizacja}
-    Co tu napisać?
-    
-    Jeśli w ogóle coś
-\end{frame}
-
-\section{Dane i bibliografia}
-
-\begin{frame}
-    \frametitle{Dane}
-    Co tu napisać?
-    
-    Jeśli w ogóle coś
-\end{frame}
-
-\begin{frame}
-    \frametitle{Bibliografia}
-    Co tu napisać?
-    
-    Jeśli w ogóle coś
+    \begin{figure}
+            \begin{subfigure}[c]{0.3\textwidth}
+                \centering\includegraphics[width=\textwidth]{obrazki/github.png}
+            \end{subfigure}
+            \begin{subfigure}[c]{0.3\textwidth}
+                \centering\includegraphics[width=\textwidth]{obrazki/R_logo.png}
+            \end{subfigure}
+            \begin{subfigure}[c]{0.3\textwidth}
+                \centering\includegraphics[width=\textwidth]{obrazki/gg_logo.png}
+            \end{subfigure}
+    \end{figure}
 \end{frame}
 
 \end{document}

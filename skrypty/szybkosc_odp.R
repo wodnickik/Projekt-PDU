@@ -142,7 +142,7 @@ draw_answer_speed <- function(){
             legend.text = element_text( size = 14),
             plot.title = element_text(size=22)
         )
-    ggsave(filename = "prezentacja/wykresy/median_times.png", width = 15, height = 20, units = "cm")
+    ggsave(filename = "prezentacja/wykresy/median_times.png")
     
     # rysujemy wykres ze średnią
     ggplot(data = Religions, aes(x=Religion, y=MeanTime, fill=Religion)) +
@@ -155,7 +155,7 @@ draw_answer_speed <- function(){
             legend.text = element_text( size = 14),
             plot.title = element_text(size=22)
         )
-    ggsave(filename = "prezentacja/wykresy/mean_times.png", width = 15, height = 20, units = "cm")
+    ggsave(filename = "prezentacja/wykresy/mean_times.png")
     
     # rysujemy wykres z maksimum
     ggplot(data = Religions, aes(x=Religion, y=MaxTime, fill=Religion)) +
@@ -168,5 +168,5 @@ draw_answer_speed <- function(){
             legend.text = element_text( size = 14),
             plot.title = element_text(size=22)
         )
-    ggsave(filename = "prezentacja/wykresy/max_times.png", width = 15, height = 20, units = "cm")
+    ggsave(filename = "prezentacja/wykresy/max_times.png")
 }

@@ -4,6 +4,7 @@
 # do plików, więc przy wykonywaniu trzeba uważać gdzie się zapisują i czy
 # przypadkiem nie dodajemy je na repozytorium
 
+religion_colors <- c("#FF8133", "#FFE900", "#0094C6", "#1A6318", "#89043D")
 
 #Potrzebne biblioteki:
 library(stringi)
@@ -93,10 +94,11 @@ aktywnosc_buddhsim <- function() {
             Comments, by = "date")
   
   #Zapis ramki do pliku 
-  write.csv(Final, "Buddhism_Akt.csv")
+  write.csv(Final, "dane/posrednie/Buddhism_Akt.csv")
   
   #Rysowanie wykresu 
   ggplot(data = Final, aes(x = date)) + 
+    scale_color_manual(values = religion_colors) +
     geom_line(aes(y = questions, color = "Pytania", group = 1)) +
     geom_line(aes(y = answers, color = "Odpowiedzi", group = 1)) +
     geom_line(aes(y = votes, color = "Głosy", group = 1)) +
@@ -107,7 +109,7 @@ aktywnosc_buddhsim <- function() {
     theme(axis.text.x = element_text(colour = 'black', size = 8, angle = 90))
   
   #Zapis wykresu
-  ggsave("wyk_akt_B.png", width=30, height = 10, units = "cm")
+  ggsave("prezentacja/Wykresy/wyk_akt_B.png", width=60, height = 20, units = "cm")
   
   invisible(NULL)
           
@@ -196,10 +198,11 @@ aktywnosc_christianity <- function() {
     Comments, by = "date")
   
   #Zapis ramki do pliku 
-  write.csv(Final, "Christianity_Akt.csv")
+  write.csv(Final, "dane/posrednie/Christianity_Akt.csv")
   
   #Rysowanie wykresu 
   ggplot(data = Final, aes(x = date)) + 
+    scale_color_manual(values = religion_colors) +
     geom_line(aes(y = questions, color = "Pytania", group = 1)) +
     geom_line(aes(y = answers, color = "Odpowiedzi", group = 1)) +
     geom_line(aes(y = votes, color = "Głosy", group = 1)) +
@@ -210,7 +213,7 @@ aktywnosc_christianity <- function() {
     theme(axis.text.x = element_text(colour = 'black', size = 8, angle = 90))
   
   #Zapis wykresu
-  ggsave("wyk_akt_C.png", width=30, height = 10, units = "cm")
+  ggsave("prezentacja/wykresy/wyk_akt_C.png", width=30, height = 10, units = "cm")
   
   invisible(NULL)
   
@@ -299,10 +302,11 @@ aktywnosc_hinduism <- function() {
     Comments, by = "date")
   
   #Zapis ramki do pliku 
-  write.csv(Final, "Hinduism_Akt.csv")
+  write.csv(Final, "dane/posrednie/Hinduism_Akt.csv")
   
   #Rysowanie wykresu 
   ggplot(data = Final, aes(x = date)) + 
+    scale_color_manual(values = religion_colors) +
     geom_line(aes(y = questions, color = "Pytania", group = 1)) +
     geom_line(aes(y = answers, color = "Odpowiedzi", group = 1)) +
     geom_line(aes(y = votes, color = "Głosy", group = 1)) +
@@ -313,7 +317,7 @@ aktywnosc_hinduism <- function() {
     theme(axis.text.x = element_text(colour = 'black', size = 8, angle = 90))
   
   #Zapis wykresu
-  ggsave("wyk_akt_H.png", width=30, height = 10, units = "cm")
+  ggsave("prezentacja/wykresy/wyk_akt_H.png", width=30, height = 10, units = "cm")
   
   invisible(NULL)
   
@@ -402,10 +406,11 @@ aktywnosc_islam <- function() {
     Comments, by = "date")
   
   #Zapis ramki do pliku 
-  write.csv(Final, "Islam_Akt.csv")
+  write.csv(Final, "dane/posrednie/Islam_Akt.csv")
   
   #Rysowanie wykresu 
   ggplot(data = Final, aes(x = date)) + 
+    scale_color_manual(values = religion_colors) +
     geom_line(aes(y = questions, color = "Pytania", group = 1)) +
     geom_line(aes(y = answers, color = "Odpowiedzi", group = 1)) +
     geom_line(aes(y = votes, color = "Głosy", group = 1)) +
@@ -416,7 +421,7 @@ aktywnosc_islam <- function() {
     theme(axis.text.x = element_text(colour = 'black', size = 8, angle = 90))
   
   #Zapis wykresu
-  ggsave("wyk_akt_I.png", width=30, height = 10, units = "cm")
+  ggsave("prezentacja/wykresy/wyk_akt_I.png", width=30, height = 10, units = "cm")
   
   invisible(NULL)
   
@@ -505,10 +510,11 @@ aktywnosc_judaism <- function() {
     Comments, by = "date")
   
   #Zapis ramki do pliku 
-  write.csv(Final, "Judaism_Akt.csv")
+  write.csv(Final, "dane/posrednie/Judaism_Akt.csv")
   
   #Rysowanie wykresu 
   ggplot(data = Final, aes(x = date)) + 
+    scale_color_manual(values = religion_colors) +
     geom_line(aes(y = questions, color = "Pytania", group = 1)) +
     geom_line(aes(y = answers, color = "Odpowiedzi", group = 1)) +
     geom_line(aes(y = votes, color = "Głosy", group = 1)) +
@@ -519,7 +525,7 @@ aktywnosc_judaism <- function() {
     theme(axis.text.x = element_text(colour = 'black', size = 8, angle = 90))
   
   #Zapis wykresu
-  ggsave("wyk_akt_J.png", width=30, height = 10, units = "cm")
+  ggsave("prezentacja/wykresy/wyk_akt_J.png", width=30, height = 10, units = "cm")
   
   invisible(NULL)
   

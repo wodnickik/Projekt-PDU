@@ -52,7 +52,7 @@ rozmieszczenie_B <- function() {
   Zliczanie <- Zliczanie[-1, ]
   
   #Zapis do pliku ramki z rozmieszczeniem
-  write.csv(Zliczanie, "Rozmieszczenie_B.csv")
+  write.csv(Zliczanie, "dane/posrednie/Rozmieszczenie_B.csv")
   
   #Połączenie z ramką world, aby uzyskać dane do rysowania mapki
   world_map <- merge(world, Zliczanie, by.y = "Country", by.x="name_long")
@@ -67,7 +67,7 @@ rozmieszczenie_B <- function() {
                          option = "G", trans = "sqrt", direction = -1)
   
   #Zapis mapki do pliku
-  ggsave("Mapa_B.png", width = 20, height = 10, units = "cm")
+  ggsave("prezentacja/wykresy/Mapa_B.png", width = 20, height = 10, units = "cm")
   
   invisible(NULL)
 }
@@ -112,7 +112,7 @@ rozmieszczenie_C <- function() {
   Zliczanie <- Zliczanie[-1, ]
   
   #Zapis do pliku
-  write.csv(Zliczanie, "Rozmieszczenie_C.csv")
+  write.csv(Zliczanie, "dane/posrednie/Rozmieszczenie_C.csv")
   
   #Połączenie z ramką world, aby uzyskać dane do rysowania mapki
   world_map <- merge(world, Zliczanie, by.y = "Country", by.x="name_long")
@@ -127,7 +127,7 @@ rozmieszczenie_C <- function() {
                          option = "G", trans = "sqrt", direction = -1)
   
   #Zapis mapki do pliku
-  ggsave("Mapa_C.png", width = 20, height = 10, units = "cm")
+  ggsave("prezentacja/wykresy/Mapa_C.png", width = 20, height = 10, units = "cm")
   
   
   
@@ -172,7 +172,7 @@ rozmieszczenie_H <- function() {
   Zliczanie <- Zliczanie[-1, ]
   
   #Zapis do pliku
-  # write.csv(Zliczanie, "Rozmieszczenie_H.csv")
+  write.csv(Zliczanie, "dane/posrednie/Rozmieszczenie_H.csv")
   
   #Połączenie z ramką world, aby uzyskać dane do rysowania mapki
   world_map <- merge(world, Zliczanie, by.y = "Country", by.x="name_long")
@@ -187,7 +187,7 @@ rozmieszczenie_H <- function() {
                          option = "G", trans = "sqrt", direction = -1)
   
   #Zapis mapki do pliku
-  ggsave("Mapa_H.png", width = 20, height = 10, units = "cm")
+  ggsave("prezentacja/wykresy/Mapa_H.png", width = 20, height = 10, units = "cm")
   
   invisible(NULL)
 }
@@ -231,7 +231,7 @@ rozmieszczenie_I <- function() {
   Zliczanie <- Zliczanie[-1, ]
   
   #Zapis do pliku
-  write.csv(Zliczanie, "Rozmieszczenie_I.csv")
+  write.csv(Zliczanie, "dane/posrednie/Rozmieszczenie_I.csv")
   
   #Połączenie z ramką world, aby uzyskać dane do rysowania mapki
   world_map <- merge(world, Zliczanie, by.y = "Country", by.x="name_long")
@@ -246,7 +246,7 @@ rozmieszczenie_I <- function() {
                          option = "G", trans = "sqrt", direction = -1)
   
   #Zapis mapki do pliku
-  ggsave("Mapa_I.png", width = 20, height = 10, units = "cm")
+  ggsave("prezentacja/wykresy/Mapa_I.png", width = 20, height = 10, units = "cm")
   
   invisible(NULL)
 }
@@ -290,7 +290,7 @@ rozmieszczenie_J <- function() {
   Zliczanie <- Zliczanie[-1, ]
   
   #Zapis do pliku
-  write.csv(Zliczanie, "Rozmieszczenie_I.csv")
+  write.csv(Zliczanie, "dane/posrednie/Rozmieszczenie_I.csv")
   
   #Połączenie z ramką world, aby uzyskać dane do rysowania mapki
   world_map <- merge(world, Zliczanie, by.y = "Country", by.x="name_long")
@@ -305,7 +305,7 @@ rozmieszczenie_J <- function() {
                          option = "G", trans = "sqrt", direction = -1)
   
   #Zapis mapki do pliku
-  ggsave("Mapa_J.png", width = 20, height = 10, units = "cm")
+  ggsave("prezentacja/wykresy/Mapa_J.png", width = 20, height = 10, units = "cm")
   
   invisible(NULL)
 }

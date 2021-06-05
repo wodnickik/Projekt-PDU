@@ -153,6 +153,7 @@ draw_religions <- function(){
         coord_polar("y", start = 0) +
         theme_void() + 
         geom_text(aes(x=1.7, y = cumsum(Adherents)[length(Adherents)] - cumsum(Adherents) + Adherents/2, 
-                      label = percent(Adherents/sum(Adherents))), size=5)
+                      label = percent(Adherents/sum(Adherents))), size=5) +
+        labs(title = "Stosunkowa ilość wyznawców poszczególnych religii")
     ggsave(filename = "prezentacja/wykresy/pie_religions.png", plot = Pie_religions)
 }

@@ -27,7 +27,7 @@ time_to_answer <- function(Posts){
         mutate(TimeToAnswer=(difftime(
             as.POSIXlt(ACreationDate, format=format, tz="UTC"),
             as.POSIXlt(QCreationDate, format=format, tz="UTC"),
-            units="mins"
+            units="hours"
             )))
 }
 
@@ -135,7 +135,7 @@ draw_answer_speed <- function(){
     ggplot(data = Religions, aes(x=Religion, y=MedianTime, fill=Religion)) +
         geom_bar(stat="identity", color="Black") +
         scale_fill_manual(values=religion_colors) +
-        labs(x = "Religia", angle = 90, y = "Mediana",
+        labs(x = "Religia", angle = 90, y = "Mediana (godz.)",
              title = "Mediana czasu oczekiwania na odpowiedź na odpowiednich forach.")
     ggsave(filename = "prezentacja/wykresy/median_times.png")
     
@@ -143,7 +143,7 @@ draw_answer_speed <- function(){
     ggplot(data = Religions, aes(x=Religion, y=MeanTime, fill=Religion)) +
         geom_bar(stat="identity", color="Black") +
         scale_fill_manual(values=religion_colors) +
-        labs(x = "Religia", angle = 90, y = "Średnia",
+        labs(x = "Religia", angle = 90, y = "Średnia (godz.)",
              title = "Średni czas oczekiwania na odpowiedź na odpowiednich forach.")
     ggsave(filename = "prezentacja/wykresy/mean_times.png")
     
@@ -151,7 +151,7 @@ draw_answer_speed <- function(){
     ggplot(data = Religions, aes(x=Religion, y=MaxTime, fill=Religion)) +
         geom_bar(stat="identity", color="Black") +
         scale_fill_manual(values=religion_colors) +
-        labs(x = "Religia", angle = 90, y = "Maksimum",
+        labs(x = "Religia", angle = 90, y = "Maksimum (godz.)",
              title = "Maksymalny czas oczekiwania na odpowiedź na odpowiednich forach.")
     ggsave(filename = "prezentacja/wykresy/max_times.png")
 }

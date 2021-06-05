@@ -94,7 +94,12 @@ draw_summary <- function(){
         scale_fill_manual(values = religion_colors) +
         geom_bar(mapping = aes(x = Religion, y = Users, fill=Religion), color = "black", stat = "identity") +
         labs(x = "Religia", angle = 90, y = "Liczba",
-             title = "Liczba użytkowników na odpowiednich forach.")
+             title = "Liczba użytkowników na odpowiednich forach.") +
+        theme(
+            legend.title = element_text( size = 16),
+            legend.text = element_text( size = 14),
+            plot.title = element_text(size=22)
+        )
     ggsave(filename = "prezentacja/wykresy/sum_users.png", plot = Users_plot)
     
     # questions
@@ -102,7 +107,12 @@ draw_summary <- function(){
         scale_fill_manual(values = religion_colors) +
         geom_bar(mapping = aes(x = Religion, y = Questions, fill=Religion), color = "black", stat = "identity") +
         labs(x = "Religia", angle = 90, y = "Liczba",
-             title = "Liczba pytań na odpowiednich forach.")
+             title = "Liczba pytań na odpowiednich forach.") +
+        theme(
+            legend.title = element_text( size = 16),
+            legend.text = element_text( size = 14),
+            plot.title = element_text(size=22)
+        )
     ggsave(filename = "prezentacja/wykresy/sum_questions.png", plot = Questions_plot)
     
     # answers
@@ -110,7 +120,12 @@ draw_summary <- function(){
         scale_fill_manual(values = religion_colors) +
         geom_bar(mapping = aes(x = Religion, y = Answers, fill=Religion), color = "black", stat = "identity") +
         labs(x = "Religia", angle = 90, y = "Liczba",
-             title = "Liczba odpowiedzi na odpowiednich forach.")
+             title = "Liczba odpowiedzi na odpowiednich forach.") +
+        theme(
+            legend.title = element_text( size = 16),
+            legend.text = element_text( size = 14),
+            plot.title = element_text(size=22)
+        )
     ggsave(filename = "prezentacja/wykresy/sum_answers.png", plot = Answers_plot)
     
     # links
@@ -118,7 +133,12 @@ draw_summary <- function(){
         scale_fill_manual(values = religion_colors) +
         geom_bar(mapping = aes(x = Religion, y = PostLinks, fill=Religion), color = "black", stat = "identity") +
         labs(x = "Religia", angle = 90, y = "Liczba",
-             title = "Liczba linków na odpowiednich forach.")
+             title = "Liczba linków na odpowiednich forach.") +
+        theme(
+            legend.title = element_text( size = 16),
+            legend.text = element_text( size = 14),
+            plot.title = element_text(size=22)
+        )
     ggsave(filename = "prezentacja/wykresy/sum_links.png", plot = Links_plot)
     
     # comments
@@ -126,7 +146,12 @@ draw_summary <- function(){
         scale_fill_manual(values = religion_colors) +
         geom_bar(mapping = aes(x = Religion, y = Comments, fill=Religion), color = "black", stat = "identity") +
         labs(x = "Religia", angle = 90, y = "Liczba",
-             title = "Liczba komentarzy na odpowiednich forach.")
+             title = "Liczba komentarzy na odpowiednich forach.") +
+        theme(
+            legend.title = element_text( size = 16),
+            legend.text = element_text( size = 14),
+            plot.title = element_text(size=22)
+        )
     ggsave(filename = "prezentacja/wykresy/sum_comments.png", plot = Comments_plot)
     
     # votes
@@ -134,7 +159,12 @@ draw_summary <- function(){
         scale_fill_manual(values = religion_colors) +
         geom_bar(mapping = aes(x = Religion, y = Votes, fill=Religion), color = "black", stat = "identity") +
         labs(x = "Religia", angle = 90, y = "Liczba",
-             title = "Liczba głosów na odpowiednich forach.")
+             title = "Liczba głosów na odpowiednich forach.") +
+        theme(
+            legend.title = element_text( size = 16),
+            legend.text = element_text( size = 14),
+            plot.title = element_text(size=22)
+        )
     ggsave(filename = "prezentacja/wykresy/sum_votes.png", plot = Votes_plot)
 }
 
@@ -154,6 +184,11 @@ draw_religions <- function(){
         theme_void() + 
         geom_text(aes(x=1.7, y = cumsum(Adherents)[length(Adherents)] - cumsum(Adherents) + Adherents/2, 
                       label = percent(Adherents/sum(Adherents))), size=5) +
-        labs(title = "Stosunkowa ilość wyznawców poszczególnych religii")
+        labs(title = "Stosunkowa ilość wyznawców.") +
+        theme(
+            legend.title = element_text( size = 16),
+            legend.text = element_text( size = 14),
+            plot.title = element_text(size=22)
+        )
     ggsave(filename = "prezentacja/wykresy/pie_religions.png", plot = Pie_religions)
 }

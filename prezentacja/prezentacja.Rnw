@@ -155,12 +155,20 @@
 
 \begin{frame}
     \frametitle{Wielkość forów}
-
+    \begin{figure}
+          \begin{subfigure}[t]{0.45\textwidth}
+              \onslide<1->\centering\includegraphics[width=\textwidth]{wykresy/pie_religions.png}
+          \end{subfigure}
+          \begin{subfigure}[t]{0.45\textwidth}
+              \onslide<1->\centering\includegraphics[width=\textwidth]{wykresy/sum_users.png}
+          \end{subfigure}
+      \end{figure}
 \end{frame}
 
 \begin{frame}
     \frametitle{Aktywność w czasie}
-
+    
+    
 \end{frame}
 
 \begin{frame}

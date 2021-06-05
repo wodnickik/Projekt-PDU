@@ -136,22 +136,37 @@ draw_answer_speed <- function(){
         geom_bar(stat="identity", color="Black") +
         scale_fill_manual(values=religion_colors) +
         labs(x = "Religia", angle = 90, y = "Mediana (godz.)",
-             title = "Mediana czasu oczekiwania na odpowiedź na odpowiednich forach.")
-    ggsave(filename = "prezentacja/wykresy/median_times.png")
+             title = "Mediana czasu oczekiwania.") +
+        theme(
+            legend.title = element_text( size = 16),
+            legend.text = element_text( size = 14),
+            plot.title = element_text(size=22)
+        )
+    ggsave(filename = "prezentacja/wykresy/median_times.png", width = 15, height = 20, units = "cm")
     
     # rysujemy wykres ze średnią
     ggplot(data = Religions, aes(x=Religion, y=MeanTime, fill=Religion)) +
         geom_bar(stat="identity", color="Black") +
         scale_fill_manual(values=religion_colors) +
         labs(x = "Religia", angle = 90, y = "Średnia (godz.)",
-             title = "Średni czas oczekiwania na odpowiedź na odpowiednich forach.")
-    ggsave(filename = "prezentacja/wykresy/mean_times.png")
+             title = "Średni czas oczekiwania.") +
+        theme(
+            legend.title = element_text( size = 16),
+            legend.text = element_text( size = 14),
+            plot.title = element_text(size=22)
+        )
+    ggsave(filename = "prezentacja/wykresy/mean_times.png", width = 15, height = 20, units = "cm")
     
     # rysujemy wykres z maksimum
     ggplot(data = Religions, aes(x=Religion, y=MaxTime, fill=Religion)) +
         geom_bar(stat="identity", color="Black") +
         scale_fill_manual(values=religion_colors) +
         labs(x = "Religia", angle = 90, y = "Maksimum (godz.)",
-             title = "Maksymalny czas oczekiwania na odpowiedź na odpowiednich forach.")
-    ggsave(filename = "prezentacja/wykresy/max_times.png")
+             title = "Maksymalny czas oczekiwania.") +
+        theme(
+            legend.title = element_text( size = 16),
+            legend.text = element_text( size = 14),
+            plot.title = element_text(size=22)
+        )
+    ggsave(filename = "prezentacja/wykresy/max_times.png", width = 15, height = 20, units = "cm")
 }

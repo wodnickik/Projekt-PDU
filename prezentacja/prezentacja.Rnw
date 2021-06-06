@@ -20,7 +20,7 @@
     \tableofcontents[ 
                     currentsubsection, 
                     hideothersubsections, 
-                    sectionstyle=show/hide, 
+                    sectionstyle=show/shaded, 
                     subsectionstyle=show/shaded, 
                     ] 
   \end{frame}
@@ -364,6 +364,13 @@
             \begin{subfigure}[c]{0.3\textwidth}
                 \centering\includegraphics[width=\textwidth]{wykresy/max_times.png}
             \end{subfigure}
+    \end{figure}
+\end{frame}
+
+\begin{frame}
+    \frametitle{Czas odpowiedzi na pytania}
+    \begin{figure}
+        \centering\includegraphics[height=\textheight]{wykresy/median_times.png}
     \end{figure}
 \end{frame}
 

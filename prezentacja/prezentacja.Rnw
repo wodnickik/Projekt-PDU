@@ -89,7 +89,6 @@
         \item<7-> Kultura
         \begin{itemize}
             \item<7-> Języki
-            \item<7-> Hobby i rozrywka
             \item<7-> Religie
         \end{itemize}
     \end{itemize}
@@ -143,6 +142,7 @@
             \end{subfigure}
             
             \onslide<1->\caption{Fora, które analizowaliśmy}
+            
         \end{figure}
         
     \end{columns}
@@ -154,10 +154,9 @@
     \begin{block}{Pytania}
     \begin{itemize}
         \item<2-> Wielkość forów
-        \item<3-> Aktywność w czasie
-        \item<4-> Wpływ wydarzeń na aktywność
-        \item<5-> Rozłożenie użytkowników na świecie
-        \item<6-> Czas odpowiedzi na pytania
+        \item<3-> Wpływ wydarzeń na aktywność
+        \item<4-> Rozłożenie użytkowników na świecie
+        \item<5-> Czas odpowiedzi na pytania
     \end{itemize}
     \end{block}
     
@@ -192,7 +191,7 @@
 \end{frame}
 
 \begin{frame}
-    \frametitle{Odpowidzi}
+    \frametitle{Odpowiedzi}
     \begin{figure}
           \begin{subfigure}[t]{0.45\textwidth}
               \onslide<1->\centering\includegraphics[width=\textwidth]{wykresy/pie_religions.png}
@@ -237,43 +236,6 @@
               \onslide<1->\centering\includegraphics[width=\textwidth]{wykresy/sum_votes.png}
           \end{subfigure}
       \end{figure}
-\end{frame}
-
-\subsection{Aktywność w czasie}
-
-\begin{frame}
-    \frametitle{Pytania}
-    \begin{figure}
-        \centering\includegraphics[width=\textwidth]{wykresy/wyk_akt_que.png}
-    \end{figure}
-\end{frame}
-
-\begin{frame}
-    \frametitle{Odpowiedzi}
-    \begin{figure}
-        \centering\includegraphics[width=\textwidth]{wykresy/wyk_akt_ans.png}
-    \end{figure}
-\end{frame}
-
-\begin{frame}
-    \frametitle{Komentarze}
-    \begin{figure}
-        \centering\includegraphics[width=\textwidth]{wykresy/wyk_akt_com.png}
-    \end{figure}
-\end{frame}
-
-\begin{frame}
-    \frametitle{Linki}
-    \begin{figure}
-        \centering\includegraphics[width=\textwidth]{wykresy/wyk_akt_lin.png}
-    \end{figure}
-\end{frame}
-
-\begin{frame}
-    \frametitle{Głosy}
-    \begin{figure}
-        \centering\includegraphics[width=\textwidth]{wykresy/wyk_akt_vot.png}
-    \end{figure}
 \end{frame}
 
 \subsection{Wpływ wydarzeń na aktywność}
@@ -355,15 +317,7 @@
 \begin{frame}
     \frametitle{Czas odpowiedzi na pytania}
     \begin{figure}
-            \begin{subfigure}[c]{0.3\textwidth}
-                \centering\includegraphics[width=\textwidth]{wykresy/median_times.png}
-            \end{subfigure}
-            \begin{subfigure}[c]{0.3\textwidth}
-                \centering\includegraphics[width=\textwidth]{wykresy/mean_times.png}
-            \end{subfigure}
-            \begin{subfigure}[c]{0.3\textwidth}
-                \centering\includegraphics[width=\textwidth]{wykresy/max_times.png}
-            \end{subfigure}
+        \centering\includegraphics[height=\textheight]{wykresy/max_times.png}
     \end{figure}
 \end{frame}
 
@@ -389,6 +343,11 @@
                 \centering\includegraphics[width=\textwidth]{obrazki/gg_logo.png}
             \end{subfigure}
     \end{figure}
+\end{frame}
+
+\begin{frame}
+    \frametitle{Koniec}
+    \Huge Dziękujemy za uwagę!
 \end{frame}
 
 \end{document}

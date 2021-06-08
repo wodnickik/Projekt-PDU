@@ -10,13 +10,4 @@ Większość analizy ma być zrealizowane za pomocą skryptów w języku R. Osta
 
 ## Postęp prac
 
-### Gotowe
-
-1. Utworzenie repozytorium
-2. Przygotowanie danych
-
-### W trakcie
-
-1. Porządkowanie repozytorium
-2. Analiza aktywności na forach
-3. Sprawdzenie szybkości udzielania odpowiedzi
+Projekt został ukończony.
